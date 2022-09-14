@@ -1,10 +1,9 @@
 // import { useEffect } from 'react'
-import {signInWithGooglePopup, createUserDocumentFromAuth} from '../../utils/firebase.utils'
-import { getRedirectResult } from 'firebase/auth';
 import SignUpForm from '../../components/sign-up-form/sign-up-form.component';
+import SignInForm from '../../components/sign-In-form/sign-In-form.component';
+import './authentication.styles.scss'
 
-
-const SignIn = () => {
+const Authentication = () => {
 
     // useEffect (async()=>{
     //     // since getredirect is ann asynchronous method
@@ -17,18 +16,14 @@ const SignIn = () => {
 
     // }, [])
 
-    const logGoogleUser = async () => {
-        const {user} = await signInWithGooglePopup();
-        const userDocRef = await createUserDocumentFromAuth(user);
-    }
+
 
  return(
-     <div>
-         <h1>sign in</h1>
-         <button onClick={logGoogleUser}>Google Sign-Up</button>
+     <div className='auth-container'>
+         <SignInForm/>
          <SignUpForm/>
      </div>
  )
 }
 
-export default SignIn
+export default Authentication
